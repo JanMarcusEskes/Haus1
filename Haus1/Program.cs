@@ -31,6 +31,7 @@ namespace Haus1
       Console.WriteLine("Bitte geben Sie Seite e ein");
       if (Double.TryParse(eingabe = Console.ReadLine(), out e) == true) e = double.Parse(eingabe);
       else { Console.WriteLine("Es wurde keine gültige Zahl eingegeben"); Console.ReadLine(); return; }
+      if (a < 1 || b < 1 || c < 1 || d < 1 || e < 1) { Console.WriteLine("Der eingegebene Wert ist nicht korrekt!"); Console.ReadLine(); return; }
 
       //Errechnen von f
       double f = Math.Sqrt((c - a) * (c - a) + b * b);
@@ -45,9 +46,8 @@ namespace Haus1
       double zaun = a + c + f;
 
       //Prüfen ob 3m bestimmung eingehalten wurde
-      if (b < e + 6) { Console.WriteLine("Sie halten die 3m Abstand zum Nachbargrundstück nicht ein!"); Console.WriteLine("Ihr Projekt ist damit nicht zulässig!"); Console.ReadLine(); return; }
-      if (a < d + 6) { Console.WriteLine("Sie halten die 3m Abstand zum Nachbargrundstück nicht ein!"); Console.WriteLine("Ihr Projekt ist damit nicht zulässig!"); Console.ReadLine(); return; }
-
+      if (b < e + 6 || a < d + 6) { Console.WriteLine("Sie halten die 3m Abstand zum Nachbargrundstück nicht ein!"); Console.WriteLine("Ihr Projekt ist damit nicht zulässig!"); Console.ReadLine(); return; }
+      
       //Ausgabe
       Console.Clear();
       Console.WriteLine("Die Ergebnisse sind:");
